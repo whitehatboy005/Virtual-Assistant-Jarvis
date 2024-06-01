@@ -3,14 +3,16 @@ To create a .env file because  API keys, and other sensitive information will be
 In .env file input the format like 
 
 PLACE=YOUR_PLACE
+
 AI_API_KEY=GEMINI_API_KEY
+
 NEWS_API_KEY=NEWS_API_KEY
 
 To get GEMINI_API_KEY in this link https://aistudio.google.com/app/apikey
 
 To get NEWS-API_KEY in this link https://newsapi.org/
 
-if you choose any different category then change the url in line
+if you choose any different category then change the url in 413 line
 
 like I'm choose techcrunch So, I'm created 
 
