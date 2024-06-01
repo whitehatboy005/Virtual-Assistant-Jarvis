@@ -1,3 +1,4 @@
+Voice Activation Keyword "point break"
 
 To get GEMINI_API_KEY in this link https://aistudio.google.com/app/apikey
 
@@ -7,4 +8,4 @@ like I'm choose techcrunch Category So, I'm created
 
 main_url = f'https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey={news_api_key}'
 
-If you choose any different category then change the url in 413 line
+If you choose any different category then change the url in 413th line
