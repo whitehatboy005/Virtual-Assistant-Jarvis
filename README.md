@@ -1,12 +1,3 @@
-To create a .env file because  API keys, and other sensitive information will be stored.
-
-In .env file input the format like 
-
-PLACE=YOUR_PLACE
-
-AI_API_KEY=GEMINI_API_KEY
-
-NEWS_API_KEY=NEWS_API_KEY
 
 To get GEMINI_API_KEY in this link https://aistudio.google.com/app/apikey
 
