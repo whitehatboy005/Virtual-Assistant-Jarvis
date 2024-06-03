@@ -26,7 +26,9 @@ load_dotenv()
 genai.configure(api_key="AI_API_KEY")
 news_api_key = os.getenv("NEWS_API_KEY")
 
-#place
+#User Credentials Calling
+username = os.getenv("USERNAME")
+password = os.getenv("PASSWORD")
 place = os.getenv("PLACE")
 
 # speech function
@@ -430,7 +432,7 @@ def ai_response(input_text):
 
 def ai():
     speak("Ok sir, Activated AI mode")
-    speak("Welcome to Harish AI. How can I help you?")
+    speak(f"Welcome to {username} AI. How can I help you?")
     while True:
         user_input = takecommand()
         if user_input:
@@ -450,7 +452,7 @@ def TaskExecution():
 
         # introduce ourself
         if "tell me about yourself" in query or "introduce yourself" in query or "who are you" in query:
-            speak("Sure sir, I am Jarvis, an Advanced Voice Assistant. \nCreated in March 2024 by Harishkumar, I am equipped with \na variety of features to enhance your productivity and convenience. \nI can open and close any apps, search anything on Google and Wikipedia, \ncheck the temperature, facilitate message passing, transcribe spoken words into text, \nplay games, utilize AI features for various tasks, perform keyboard shortcuts, \ncontrol volume, play music, provide the latest news updates, print documents, \nmanage system functions such as shutdown, restart, and sleep, check internet speed, \nand much more. Simply tell me what you need, and I'll do my best to assist you efficiently.")
+            speak(f"Sure sir, I am Jarvis, an Advanced Voice Assistant. \nCreated  by {username}, I am equipped with \na variety of features to enhance your productivity and convenience. \nI can open and close any apps, search anything on Google and Wikipedia, \ncheck the temperature, facilitate message passing, transcribe spoken words into text, \nplay games, utilize AI features for various tasks, perform keyboard shortcuts, \ncontrol volume, play music, provide the latest news updates, print documents, \nmanage system functions such as shutdown, restart, and sleep, check internet speed, \nand much more. Simply tell me what you need, and I'll do my best to assist you efficiently.")
 
         # open any apps
         elif ("open" in query) and ("settings" not in query and "task" not in query and "accessibility" not in query and "it" not in query and "run" not in query and "emoji" not in query and "clipboard" not in query and "mail" not in query and "notification" not in query and "tab" not in query and "facebook" not in query and "youtube" not in query and "window" not in query and "downloads" not in query):
@@ -1024,9 +1026,10 @@ if __name__ == "__main__":
     speak("Voice Activation Required")
     while True:
         permission = takecommand()
-        if "point break" in permission:
+        if f"{password}" in permission:
+            speak("Access Granted")
             wish()
-            speak("please tell me how may i help you sir?")
+            speak("I am Jarvis, Please tell me how may i help you sir?")
             TaskExecution()
 
         else:
