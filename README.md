@@ -1,9 +1,13 @@
 .env File input format
 
 USERNAME=YOUR_NAME
+
 PASSWORD=YOUR_VOICE_ACTIVATION_KEY
+
 PLACE=YOUR_PLACE
+
 AI_API_KEY=GEMINI_API_KEY
+
 NEWS_API_KEY=NEWS_API_KEY
 
 A .env file in Python is a simple text file used to store configuration settings, environment variables, and other key-value pairs related to a Python project. These files typically contain sensitive information such as API keys, database credentials, or configuration settings.
