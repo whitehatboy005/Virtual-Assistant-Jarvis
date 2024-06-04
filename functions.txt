@@ -1,68 +1,136 @@
-Any Apps opening and closing
-Translate any language
-open command prompt
-open and close google
-open and close file explorer
-open run prompt
-open clipboard
-open emoji panel
-open and close Taskbar apps - just saying number order
-open new tab and close this tab
-open new window
-open and close YouTube
-close anything - just say close it
-take photo & take video
-set alarm
-shutdown, restart, sleep and lock system
-check mail
-minimise and maximize all windows
-minimise and maximize window
-print the page
-show notofication
-enable and disable don't disturb
-move next tab and previous tab
-select all text
-cut,copy,paste the text
-save as the file
-minimise and maximize the YouTube video
-full screen in YouTube video
-exit from full screen in YouTube video
-enable and disable caption in YouTube video
-Increase and decrease play speed in YouTube video
-play next video & previous video (youtube)
-play a song on youtube
-play music (our downloaded music)
-find ip address
-find location
-search on wikipedia anything
-search on google any ting
-zoom in & zoom out the screen
-play & pause anything
-scroll up & scroll down the page
-type (voice to text automatically typing)
-go to next field (login page)
-erase (like erase 5 letters) 
-search (searching field)
-send message (like whatsapp)
-mute & unmute the particular page
-mute & unmute the whole system
-volume up & volume down
-play games (stone,paper,scissor and number gussing game)
-check battery percent
-check internet speed
-switch the window
-tell the latest news
-rerun the program
-close the program
-goto sleep mode (sleep the program)
-check instagram profile (sir would you like to download a profile of this account.)
-take screenshot
-hide all files & hide this folder & visible for everyone
-calculation (input and voice)
-check temperature
-check weather
-Activate AI mode
-wish()
+Any Apps opening and closing - just say open or close then your Application name [Example: Open whatsapp]
+
+Translate any language - just say Translate in your word [Example: Translate Good morning]
+
+wish - its welcome wishes like Good morning sir and say now weather condition.
+
+open command prompt - [Example : open command promp]
+
+open and close google - [Example : open google]
+
+open and close file explorer - [Example : open file explorer]
+
+open run prompt - [Example : open run prompt]
+
+open clipboard - [Example : open clipboard]
+
+open emoji panel - [Example : open emoji panel]
+
+open and close Taskbar apps - Taskbar means you pin the application in Taskbar then you will open or close it [Example: open 1st task]
+
+open new tab and close this tab - [Example : open new tab]
+
+open new window - [Example : open new window]
+
+open and close YouTube - [Example :open youtube]
+
+close anything - [Example : close it]
+
+take photo & take video - [Example : take photo]
+
+set alarm - first say set alarm then it will ask time you will say time then it automatically set the alarm
+
+shutdown, restart, sleep and lock the system - [Example : shutdown the system]
+
+check mail - [Example : check mail]
+
+check downloads - if you want see downloads page in chrome or firefox [Example : check downloads or do to downloads page]
+
+minimise and maximize all windows - [Example : minimize all windows]
+
+minimise and maximize window - [Example : minimize the window]
+
+print the page - [Example : print the page]
+
+show notification - [Example : show notification]
+
+enable and disable don't disturb - [Example : enable don't disturb mode]
+
+move next tab and previous tab - [Example : move next tab]
+
+find something -  - [Example : find Hello]
+
+select all text - [Example : select all text]
+
+cut,copy,paste the text - [Example : cut the text or cut it ]
+
+save as the file - [Example : save as the file]
+
+minimise and maximize the YouTube video - [Example : minimize the video]
+
+full screen in YouTube video - [Example : full screen]
+
+exit from full screen in YouTube video - [Example : exit full screen]
+
+enable and disable caption in YouTube video - [Example : Enable caption]
+
+Increase and decrease play speed in YouTube video - [Example : increase the speed]
+
+play next video & previous video in youtube - [Example : play next video]
+
+play a song on youtube - first say play song on YouTube then it will ask song name then you will say song name it will playing automatically.
+
+play music (our downloaded music) - [Example : play music]
+
+find ip address [Example : find my ipaddress]
+
+find location - [Example: where we are]
+
+search on wikipedia anything - just say your question and then lastly include search on wikipedia [Example: What is python search on Wikipedia]
+
+search on google anything - just say your question and then lastly include search on google [Example: What is python search on google]
+
+zoom in & zoom out the screen [Example : zoom in]
+
+play & pause anything [Example : play it]
+
+scroll up & scroll down the page [Example : scroll up]
+
+type anything (voice to text automatically typing) - just say type then your message [Example: type Hello]
+
+go to next field (If you filled username field in login page then you will go to password field) - [Example: go to next field]
+
+erase - if you type a paragraph then you will make mistake that time it you will use [Example: erase 5 letters] 
+
+search - if you open google then seach anything that time it will use [Example: search what is python]
+
+send message - if you send any message anyone just say send or send message and in your message [Example: send Good morning or send message Good morning]
+
+mute & unmute the particular page [Example : mute it]
+
+mute & unmute the whole system [Example : mute the system]
+
+volume up & volume down [Example : volume up]
+
+play games (stone,paper,scissor and number gussing game) - just say play games it will ask which game you want to play in above the game choices.
+
+check battery percent [Example: check battery percent]
+
+check internet speed [Example: check Internet speed]
+
+switch the window [Example: switch the window]
+
+tell the latest news [Example:tell me a latest news or tell me today latest news ]
+
+goto sleep mode (sleep the program and you want wakeup just say jarvis)
+
+check instagram profile - Check anyone instagram page and if you want download the profile details it's your choice)
+
+take screenshot [Example: take screenshot]
+
+print the page [Example: print the page]
+
+hide all files & hide this folder & visible for everyone (if you want hide any file or folder or visible it)
+
+calculation (if you solve any calcuation say caluculate some proble or equation  then it ask you want to input the question or say it's your choice) 
+
+check temperature [Example: check temperature]
+
+check weather [Example: check weather]
+
+Activate AI mode (If you say Activate the AI mode you speak directly AI and you want to leave just say Deactivate AI mode)
+
+Exit the program (if you want to close the program, say exit the program or goodbye jarvis) 
 
 
 
