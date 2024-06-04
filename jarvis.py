@@ -31,6 +31,10 @@ username = os.getenv("USERNAME")
 password = os.getenv("PASSWORD")
 place = os.getenv("PLACE")
 
+#NEWS Information calling
+country = os.getenv("COUNTRY")
+category = os.getenv("CATEGORY")
+
 # speech function
 engine = pyttsx3.init('sapi5')
 voices = engine.getProperty('voices')
@@ -412,7 +416,7 @@ def NGG():
 
 # NEWS
 def news():
-    main_url = f'https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey={news_api_key}'
+    main_url = f'https://newsapi.org/v2/top-headlines?country={country}&category={category}&apiKey={news_api_key}'
     main_page = requests.get(main_url).json()
     articles = main_page["articles"]
     head = []
