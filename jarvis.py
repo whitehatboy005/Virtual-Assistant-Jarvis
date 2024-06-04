@@ -1026,7 +1026,7 @@ if __name__ == "__main__":
     speak("Voice Activation Required")
     while True:
         permission = takecommand()
-        if f"{password}" in permission:
+        if password in permission:
             speak("Access Granted")
             wish()
             speak("I am Jarvis, Please tell me how may i help you sir?")
