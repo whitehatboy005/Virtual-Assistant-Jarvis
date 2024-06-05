@@ -420,12 +420,11 @@ def news():
     main_page = requests.get(main_url).json()
     articles = main_page["articles"]
     head = []
-    day = ["first", "second", "third", "fourth", "fifth", "sixth", "seventh", "eighth", "ninth", "tenth"]
+    day = ["First", "Second", "Third", "Fourth", "Fifth", "Sixth", "Seventh", "Eighth", "Ninth", "Tenth"]
     for ar in articles:
         head.append(ar["title"])
     for i in range(len(day)):
-        speak(f"today's {day[i]} new is:{head[i]}")
-
+        speak(f"Today's {day[i]} news is: {head[i]}")
 
 # AI response
 def ai_response(input_text):
@@ -456,7 +455,7 @@ def TaskExecution():
 
         # introduce ourself
         if "tell me about yourself" in query or "introduce yourself" in query or "who are you" in query:
-            speak(f"Sure sir, I am Jarvis, an Advanced Voice Assistant. \nI am equipped with a variety of features to enhance your productivity and convenience. \nI can open and close any apps, search anything on Google and Wikipedia, \ncheck the temperature, facilitate message passing, transcribe spoken words into text, \nplay games, utilize AI features for various tasks, perform keyboard shortcuts, \ncontrol volume, play music, provide the latest news updates, print documents, \nmanage system functions such as shutdown, restart, and sleep, check internet speed, and much more. \nI can also translate languages to help you communicate effectively. \nSimply tell me what you need, and I'll do my best to assist you efficiently.")
+            speak("Sure sir, I am Jarvis, an Advanced Voice Assistant. \nI am equipped with a variety of features to enhance your productivity and convenience. \nI can open and close any apps, search anything on Google and Wikipedia, \ncheck the temperature, facilitate message passing, transcribe spoken words into text, \nplay games, utilize AI features for various tasks, perform keyboard shortcuts, \ncontrol volume, play music, provide the latest news updates, print documents, \nmanage system functions such as shutdown, restart, and sleep, check internet speed, and much more. \nI can also translate languages to help you communicate effectively. \nSimply tell me what you need, and I'll do my best to assist you efficiently.")
 
         # open any apps
         elif ("open" in query) and ("settings" not in query and "task" not in query and "accessibility" not in query and "it" not in query and "run" not in query and "emoji" not in query and "clipboard" not in query and "mail" not in query and "notification" not in query and "tab" not in query and "facebook" not in query and "youtube" not in query and "window" not in query and "downloads" not in query):
