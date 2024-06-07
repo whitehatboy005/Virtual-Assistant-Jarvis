@@ -16,4 +16,4 @@ bs4
 speedtest
 pywhatkit
 googletrans
-dotenv
+python-dotenv
