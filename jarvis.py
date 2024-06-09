@@ -23,18 +23,15 @@ from dotenv import load_dotenv
 load_dotenv()
 
 #API KEY Environment
-genai.configure(api_key="AI_API_KEY")
-news_api_key = os.getenv("NEWS_API_KEY")
+AI_API_KEY = os.getenv("AI_API_KEY")
+NEWS_API_KEY = os.getenv("NEWS_API_KEY")
 
-#User Credentials Calling
-username = os.getenv("USERNAME")
-password = os.getenv("PASSWORD")
-place = os.getenv("PLACE")
-
-#NEWS Information calling
-country = os.getenv("COUNTRY")
-category = os.getenv("CATEGORY")
-
+#Ai API CALLING
+genai.configure(api_key = AI_API_KEY)
+#Credentials calling
+PLACE = os.getenv("PLACE")
+PASSWORD = os.getenv("PASSWORD")
+USERNAME = os.getenv("USERNAME")
 # speech function
 engine = pyttsx3.init('sapi5')
 voices = engine.getProperty('voices')
@@ -49,7 +46,7 @@ def speak(audio):
 
 # weather information
 def weather():
-    search = f"weather in {place}"
+    search = f"weather in {PLACE}"
     url = f"https://www.google.com/search?q={search}"
     r = requests.get(url)
     data = BeautifulSoup(r.text, "html.parser")
@@ -416,7 +413,7 @@ def NGG():
 
 # NEWS
 def news():
-    main_url = f'https://newsapi.org/v2/top-headlines?country={country}&category={category}&apiKey={news_api_key}'
+    main_url = f'https://newsapi.org/v2/top-headlines?country=in&category=technology&apiKey={NEWS_API_KEY}'
     main_page = requests.get(main_url).json()
     articles = main_page["articles"]
     head = []
@@ -425,6 +422,7 @@ def news():
         head.append(ar["title"])
     for i in range(len(day)):
         speak(f"Today's {day[i]} news is: {head[i]}")
+
 
 # AI response
 def ai_response(input_text):
@@ -435,7 +433,7 @@ def ai_response(input_text):
 
 def ai():
     speak("Ok sir, Activated AI mode")
-    speak(f"Welcome to {username} AI. How can I help you?")
+    speak(f"Welcome to {USERNAME} AI. How can I help you?")
     while True:
         user_input = takecommand()
         if user_input:
@@ -443,7 +441,6 @@ def ai():
                 speak("Ok sir, Deactivated AI mode")
                 break
             response = ai_response(user_input)
-            print("AI Response:", response)
             speak(response)
 
 
@@ -455,7 +452,7 @@ def TaskExecution():
 
         # introduce ourself
         if "tell me about yourself" in query or "introduce yourself" in query or "who are you" in query:
-            speak("Sure sir, I am Jarvis, an Advanced Voice Assistant. \nI am equipped with a variety of features to enhance your productivity and convenience. \nI can open and close any apps, search anything on Google and Wikipedia, \ncheck the temperature, facilitate message passing, transcribe spoken words into text, \nplay games, utilize AI features for various tasks, perform keyboard shortcuts, \ncontrol volume, play music, provide the latest news updates, print documents, \nmanage system functions such as shutdown, restart, and sleep, check internet speed, and much more. \nI can also translate languages to help you communicate effectively. \nSimply tell me what you need, and I'll do my best to assist you efficiently.")
+            speak("Sure sir, I am Jarvis, an Advanced Voice Assistant. \nI am equipped with a variety of features to enhance your productivity and convenience. \nI can open and close any apps, search anything on Google and Wikipedia, \ncheck the temperature, facilitate message passing, transcribe spoken words \ninto text, play games, utilize AI features for various tasks, perform keyboard \nshortcuts, control volume, play music, provide the latest news updates, \nprint documents, manage system functions such as shutdown, restart, and sleep, \ncheck internet speed, and much more. I can also translate languages to help you \ncommunicate effectively. Simply tell me what you need, and I'll do my best to assist you efficiently.")
 
         # open any apps
         elif ("open" in query) and ("settings" not in query and "task" not in query and "accessibility" not in query and "it" not in query and "run" not in query and "emoji" not in query and "clipboard" not in query and "mail" not in query and "notification" not in query and "tab" not in query and "facebook" not in query and "youtube" not in query and "window" not in query and "downloads" not in query):
@@ -1006,7 +1003,7 @@ def TaskExecution():
 
         # check temperature
         elif "temperature" in query:
-            search = f"temperature in {place}"
+            search = f"temperature in {PLACE}"
             url = f"https://www.google.com/search?q={search}"
             r = requests.get(url)
             data = BeautifulSoup(r.text, "html.parser")
@@ -1029,10 +1026,10 @@ if __name__ == "__main__":
     speak("Voice Activation Required")
     while True:
         permission = takecommand()
-        if password in permission:
+        if PASSWORD in permission:
             speak("Access Granted")
             wish()
-            speak("I am Jarvis, Please tell me how may i help you sir?")
+            speak("I am Jarvis, please tell me how may i help you sir?")
             TaskExecution()
 
         else:
