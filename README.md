@@ -3,23 +3,16 @@
 
 It's an Advanced Voice Assistant. It's have equipped with a variety of features to enhance your productivity and convenience. It can open and close any apps, search anything on Google and Wikipedia, check the temperature, facilitate message passing, transcribe spoken words into text, play games, utilize AI features for various tasks, perform keyboard shortcuts, control volume, play music, provide the latest news updates, print documents, manage system functions such as shutdown, restart, and sleep, check internet speed, and much more. It can translate languages to help you communicate effectively. Simply tell what you need, and it will do best to assist you efficiently.
 
-config.env File input format
-
-first open the file in notepad like if you use command prompt type [notepad config.env] then you change the value
-
-USERNAME=YOUR_NAME
-
-PASSWORD=YOUR_VOICE_ACTIVATION_KEY #need small letters only
-
-PLACE=YOUR_PLACE #Example: PLACE=chennai
-
-AI_API_KEY=GEMINI_API_KEY
-
-NEWS_API_KEY=NEWS_API_KEY
-
-COUNTRY=YOUR_COUNTRY_CODE #Example: COUNTRY=in
-
-CATEGORY=YOUR_INTERESTED_CATEGORY #Example: CATEGORY=technology 
+#Jarvis
+##Installation
+###Clone the repository 
+git clone https://github.com/whitehatboy005/Jarvis
+cd Jarvis
+pip install -r requirements.txt
+####Config your details
+notepad config.env
+#####Run the program
+python jarvis.py
 
 A .env file in Python is a simple text file used to store configuration settings, environment variables, and other key-value pairs related to a Python project. These files typically contain sensitive information such as API keys, database credentials, or configuration settings.
 
