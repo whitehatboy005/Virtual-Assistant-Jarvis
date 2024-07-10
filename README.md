@@ -5,13 +5,15 @@ It's an Advanced Voice Assistant. It's have equipped with a variety of features 
 
 #Installation
 
-#Clone the repository 
+#Clone the Repository 
+\```bash
 
 git clone https://github.com/whitehatboy005/Jarvis
 
 cd Jarvis
 
 pip install -r requirements.txt
+\```
 
 #Config your details
 
