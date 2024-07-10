@@ -1130,7 +1130,7 @@ if __name__ == "__main__":
     speak("Voice Activation Required")
     while True:
         permission = takecommand()
-        if PASSWORD1 in permission:
+        if PASSWORD in permission:
             speak("Access Granted")
             speak("Jarvis Activated")
             wish()
