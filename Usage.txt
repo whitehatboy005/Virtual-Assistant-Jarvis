@@ -6,7 +6,7 @@ Translate any language - just say Translate in your word [Example: Translate Goo
 
 wish - its welcome wishes like Good morning sir and say now weather condition.
 
-open command prompt - [Example : open command promp]
+open command prompt - [Example : open command prompt]
 
 open and close google - [Example : open google]
 
