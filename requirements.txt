@@ -17,3 +17,4 @@ speedtest
 pywhatkit
 googletrans
 python-dotenv
+comtypes
