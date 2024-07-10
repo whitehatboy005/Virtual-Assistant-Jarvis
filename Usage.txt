@@ -1,3 +1,5 @@
+Automatically always checking alternative things - Battery status and time reminder will announce
+
 Any Apps opening and closing - just say open or close then your Application name [Example: Open whatsapp]
 
 Translate any language - just say Translate in your word [Example: Translate Good morning]
