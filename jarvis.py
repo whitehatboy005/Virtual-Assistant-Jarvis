@@ -20,7 +20,7 @@ import re
 from googletrans import LANGUAGES, Translator
 from dotenv import load_dotenv
 
-load_dotenv()
+load_dotenv('config.env')
 
 #API KEY Environment
 AI_API_KEY = os.getenv("AI_API_KEY")
