@@ -9,7 +9,7 @@ first open the file in notepad like if you use command prompt type [notepad conf
 
 USERNAME=YOUR_NAME
 
-PASSWORD=YOUR_VOICE_ACTIVATION_KEY
+PASSWORD=YOUR_VOICE_ACTIVATION_KEY #need small letters only
 
 PLACE=YOUR_PLACE
 
@@ -19,7 +19,7 @@ NEWS_API_KEY=NEWS_API_KEY
 
 COUNTRY=YOUR_COUNTRY_CODE #Example: COUNTRY=in
 
-CATEGORY=YOUR_INTERESTED_CATEGORY #Example: CATEGORY=technology
+CATEGORY=YOUR_INTERESTED_CATEGORY #Example: CATEGORY=technology 
 
 A .env file in Python is a simple text file used to store configuration settings, environment variables, and other key-value pairs related to a Python project. These files typically contain sensitive information such as API keys, database credentials, or configuration settings.
 
