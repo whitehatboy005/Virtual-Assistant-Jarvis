@@ -1,7 +1,7 @@
 import psutil
 import pyttsx3
 import speech_recognition as sr
-import datetime
+from datetime import datetime, timedelta
 import os
 import random
 import wikipedia
@@ -28,15 +28,52 @@ NEWS_API_KEY = os.getenv("NEWS_API_KEY")
 
 #Ai API CALLING
 genai.configure(api_key = AI_API_KEY)
+
 #Credentials calling
 PLACE = os.getenv("PLACE")
 PASSWORD = os.getenv("PASSWORD")
 USERNAME = os.getenv("USERNAME")
+
 # speech function
 engine = pyttsx3.init('sapi5')
 voices = engine.getProperty('voices')
 engine.setProperty('voices', voices[0].id)
 # engine.setProperty('rate', 180)
+
+
+#REMINDER
+def get_greeting():
+    current_hour = datetime.now().hour
+    if current_hour == 7:
+        return "Good Morning sir,"
+    elif current_hour == 12:
+        return "Good Afternoon sir,"
+    elif current_hour == 16:
+        return "Good Evening sir,"
+    elif current_hour == 21:
+        return "Good Night sir,"
+    else:
+        return None
+
+
+def get_battery_status():
+    battery = psutil.sensors_battery()
+    if battery:
+        return battery.percent, battery.power_plugged
+    else:
+        return None, None
+
+def speak_greeting_and_time():
+    greeting = get_greeting()
+    if greeting is not None:
+        speak(greeting)
+    speak_time()
+
+
+def speak_time():
+    now = datetime.now().strftime("%I:%M %p")
+    speak(f"Time is {now} sir")
+
 
 # Speak function
 def speak(audio):
@@ -73,7 +110,7 @@ def takecommand():
 
 
 def wish():
-    hour = int(datetime.datetime.now().hour)
+    hour = int(datetime.now().hour)
     # tt = time.strftime("%I:%M %p")
     if hour >= 0 and hour < 12:
         speak(f"Good Morning sir")  # , now {tt}
@@ -446,13 +483,72 @@ def ai():
 
 # MAIN PROGRAM
 def TaskExecution():
+    previous_plugged = None
+    previous_battery_percent = None
+    last_announcement_time = None
+    last_full_charge_announcement = None
+    last_15_percent_announcement = None
+    last_10_percent_announcement = None
+    last_5_percent_announcement = None
+    last_2_percent_announcement = None
 
     while True:
+        current_minute = datetime.now().minute
+        current_hour = datetime.now().hour
+
+        # Check if it's a new minute
+        current_time = datetime.now().replace(second=0, microsecond=0)
+        if last_announcement_time is None or current_time != last_announcement_time:
+            last_announcement_time = current_time
+
+            if current_hour in [7, 12, 16, 21] and current_minute == 0:
+                speak_greeting_and_time()
+            elif current_minute == 0:
+                speak_time()
+
+        battery_percent, plugged = get_battery_status()
+
+        if battery_percent is not None and plugged is not None:
+            now = datetime.now()
+
+            if previous_plugged is not None and plugged != previous_plugged:
+                if plugged:
+                    speak("Charger plugged in sir.")
+                else:
+                    speak(f"Charger is removed, and you have {battery_percent} percent backup left.")
+
+            if battery_percent == 100 and plugged:
+                if last_full_charge_announcement is None or (now - last_full_charge_announcement) > timedelta(
+                        minutes=1):
+                    speak("Battery is full. Please remove the plug sir.")
+                    last_full_charge_announcement = now
+
+            if battery_percent == 15 and not plugged:
+                if last_15_percent_announcement is None or (now - last_15_percent_announcement) > timedelta(minutes=1):
+                    speak("Charge is 15, please charge the system sir.")
+                    last_15_percent_announcement = now
+
+            if battery_percent == 10 and not plugged:
+                if last_10_percent_announcement is None or (now - last_10_percent_announcement) > timedelta(minutes=1):
+                    speak("Charge is 10, please charge the system sir.")
+                    last_10_percent_announcement = now
+
+            if battery_percent == 5 and not plugged:
+                if last_5_percent_announcement is None or (now - last_5_percent_announcement) > timedelta(minutes=1):
+                    speak("Charge is 5, please charge the system sir.")
+                    last_5_percent_announcement = now
+
+            if battery_percent <= 2 and not plugged:
+                if last_2_percent_announcement is None or (now - last_2_percent_announcement) > timedelta(seconds=30):
+                    speak("Charge is very low sir, Quickly charge the system .")
+                    last_2_percent_announcement = now
+            previous_plugged = plugged
+            previous_battery_percent = battery_percent
         query = takecommand().lower()
 
         # introduce ourself
         if "tell me about yourself" in query or "introduce yourself" in query or "who are you" in query:
-            speak("Sure sir, I am Jarvis, an Advanced Voice Assistant. \nI am equipped with a variety of features to enhance your productivity and convenience. \nI can open and close any apps, search anything on Google and Wikipedia, \ncheck the temperature, facilitate message passing, transcribe spoken words \ninto text, play games, utilize AI features for various tasks, perform keyboard \nshortcuts, control volume, play music, provide the latest news updates, \nprint documents, manage system functions such as shutdown, restart, and sleep, \ncheck internet speed, and much more. I can also translate languages to help you \ncommunicate effectively. Simply tell me what you need, and I'll do my best to assist you efficiently.")
+            speak("Sure sir, I am Jarvis, an Advanced Voice Assistant. I am equipped with a variety of features to enhance your productivity and convenience. \nI can open and close any apps, search anything on Google and Wikipedia, \ncheck the temperature, facilitate message passing, transcribe spoken words \ninto text, play games, utilize AI features for various tasks, perform keyboard \nshortcuts, control volume, play music, provide the latest news updates, \nprint documents, manage system functions such as shutdown, restart, and sleep, \ncheck internet speed, and much more. I can also translate languages to help you \ncommunicate effectively. Simply tell me what you need, and I'll do my best to assist you efficiently.")
 
         # open any apps
         elif ("open" in query) and ("settings" not in query and "task" not in query and "accessibility" not in query and "it" not in query and "run" not in query and "emoji" not in query and "clipboard" not in query and "mail" not in query and "notification" not in query and "tab" not in query and "facebook" not in query and "youtube" not in query and "window" not in query and "downloads" not in query):
@@ -470,6 +566,13 @@ def TaskExecution():
             pyautogui.hotkey('alt', 'f4')
             speak("Do you have any other work sir....")
 
+        #show functions text file
+        elif "show usage file" in query or "how to use" in query:
+            speak("Ok sir, showing User manual")
+            with open('Usage.txt', 'r') as file:
+                content = file.read()
+            print(content)
+
         #time
         elif "time" in query:
             tt = time.strftime("%I:%M %p")
@@ -483,9 +586,9 @@ def TaskExecution():
         # camera functions
         elif "take photo" in query or "take video" in query:
             pyautogui.press('enter')
-        elif "change photo" in query or "switch photo" in query:
+        elif "change photo" in query or "switch to photo" in query:
             pyautogui.press('down')
-        elif "change video" in query or "switch video" in query:
+        elif "change video" in query or "switch to video" in query:
             pyautogui.press('up')
 
         # Alarm set
@@ -903,6 +1006,7 @@ def TaskExecution():
         # closing Jarvis
         elif "goodbye Jarvis" in query or "goodbye" in query or "close the program" in query or "exit the program" in query:
             speak("Goodbye sir, have a good day.")
+            speak("Jarvis Deactivated")
             sys.exit()
 
         # Normal commands
@@ -1026,8 +1130,9 @@ if __name__ == "__main__":
     speak("Voice Activation Required")
     while True:
         permission = takecommand()
-        if PASSWORD in permission:
+        if PASSWORD1 in permission:
             speak("Access Granted")
+            speak("Jarvis Activated")
             wish()
             speak("I am Jarvis, please tell me how may i help you sir?")
             TaskExecution()
