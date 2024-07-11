@@ -30,7 +30,7 @@ NEWS_API_KEY = os.getenv("NEWS_API_KEY")
 genai.configure(api_key = AI_API_KEY)
 
 #Credentials calling
-NAME = os.getenv("NAME")
+NAME = os.getenv("USERNAME")
 PLACE = os.getenv("PLACE")
 PASSWORD = os.getenv("PASSWORD")
 
