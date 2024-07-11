@@ -291,7 +291,6 @@ def get_ip_address():
 
 # type
 def type_text(text):
-    # In a real application, you would simulate typing here
     pyautogui.typewrite(text)
 
 
