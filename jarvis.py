@@ -564,10 +564,10 @@ def TaskExecution():
             speak(f"ok sir, closing {text_to_type}")
             pyautogui.hotkey('alt', 'f4')
             speak("Do you have any other work sir....")
-
+            
         #show functions text file
-        elif "show usage file" in query or "how to use" in query:
-            speak("Ok sir, showing User manual")
+        elif "show usage file" in query or "how to use" in query or "show you functionalities" in query:
+            speak("Ok sir, showing my functionalitites")
             with open('Usage.txt', 'r') as file:
                 content = file.read()
             print(content)
