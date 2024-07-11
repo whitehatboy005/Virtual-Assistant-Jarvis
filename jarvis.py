@@ -567,7 +567,7 @@ def TaskExecution():
             
         #show functions text file
         elif "show usage file" in query or "how to use" in query or "show you functionalities" in query:
-            speak("Ok sir, showing my functionalitites")
+            speak("Ok sir, showing my functionalities")
             with open('Usage.txt', 'r') as file:
                 content = file.read()
             print(content)
