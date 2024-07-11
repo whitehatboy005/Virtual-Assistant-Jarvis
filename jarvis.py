@@ -30,9 +30,9 @@ NEWS_API_KEY = os.getenv("NEWS_API_KEY")
 genai.configure(api_key = AI_API_KEY)
 
 #Credentials calling
+NAME = os.getenv("NAME")
 PLACE = os.getenv("PLACE")
 PASSWORD = os.getenv("PASSWORD")
-USERNAME = os.getenv("USERNAME")
 
 # speech function
 engine = pyttsx3.init('sapi5')
@@ -469,7 +469,7 @@ def ai_response(input_text):
 
 def ai():
     speak("Ok sir, Activated AI mode")
-    speak(f"Welcome to {USERNAME} AI. How can I help you?")
+    speak(f"Welcome to {NAME} AI. How can I help you?")
     while True:
         user_input = takecommand()
         if user_input:
@@ -547,7 +547,7 @@ def TaskExecution():
 
         # introduce ourself
         if "tell me about yourself" in query or "introduce yourself" in query or "who are you" in query:
-            speak("Sure sir, I am Jarvis, an Advanced Voice Assistant. I am equipped with a variety of features to enhance your productivity and convenience. \nI can open and close any apps, search anything on Google and Wikipedia, \ncheck the temperature, facilitate message passing, transcribe spoken words \ninto text, play games, utilize AI features for various tasks, perform keyboard \nshortcuts, control volume, play music, provide the latest news updates, \nprint documents, manage system functions such as shutdown, restart, and sleep, \ncheck internet speed, and much more. I can also translate languages to help you \ncommunicate effectively. Simply tell me what you need, and I'll do my best to assist you efficiently.")
+            speak("Sure sir, I am Jarvis, an Advanced Voice Assistant. I am equipped with a variety of features to enhance your productivity and convenience. I can open and close any apps, search anything on Google and Wikipedia, check the temperature, facilitate message passing, transcribe spoken words into text, play games, utilize AI features for various tasks, perform keyboard shortcuts, control volume, play music, provide the latest news updates, print documents, manage system functions such as shutdown, restart, and sleep, check internet speed, and much more. I can also translate languages to help you communicate effectively. Simply tell me what you need, and I'll do my best to assist you efficiently.")
 
         # open any apps
         elif ("open" in query) and ("settings" not in query and "task" not in query and "accessibility" not in query and "it" not in query and "run" not in query and "emoji" not in query and "clipboard" not in query and "mail" not in query and "notification" not in query and "tab" not in query and "facebook" not in query and "youtube" not in query and "window" not in query and "downloads" not in query):
@@ -564,13 +564,14 @@ def TaskExecution():
             speak(f"ok sir, closing {text_to_type}")
             pyautogui.hotkey('alt', 'f4')
             speak("Do you have any other work sir....")
-            
+
         #show functions text file
-        elif "show usage file" in query or "how to use" in query or "show you functionalities" in query:
+        elif "show usage file" in query or "how to use" in query or "show your functionalities" in query:
             speak("Ok sir, showing my functionalities")
             with open('Usage.txt', 'r') as file:
                 content = file.read()
             print(content)
+            speak("Do you have any other work sir....")
 
         #time
         elif "time" in query:
@@ -727,8 +728,9 @@ def TaskExecution():
             pyautogui.hotkey('ctrl', 't')
 
         elif "no no close them" in query or "no no close it" in query or "close it" in query:
-            speak("ok sir, closing")
+            speak("ok sir, closing it")
             pyautogui.hotkey('alt', 'f4')
+            speak("Do you have any other work sir....")
 
         elif "close this tab" in query or "delete this tab" in query:
             speak("Ok sir, closing this tab")
@@ -738,9 +740,11 @@ def TaskExecution():
         elif "close the page" in query or "closing the page" in query or "close this page" in query or "closing this page" in query:
             speak("Okay sir, Closing this page")
             pyautogui.hotkey("ctrl", "w")
+            speak("Do you have any other work sir....")
 
         #Delete
         elif "delete it" in query:
+            speak("ok sir, Deleting it")
             pyautogui.press('del')
 
         #show downloads
@@ -926,6 +930,7 @@ def TaskExecution():
             text_to_type = query.split("search", 1)[-1].strip()
             type_text(text_to_type)
             pyautogui.press('enter')
+            speak("ok sir, Searching your result")
 
         # send message
         elif "message" in query:
@@ -1138,3 +1143,4 @@ if __name__ == "__main__":
 
         else:
             speak("Access Denied")
+
