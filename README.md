@@ -31,3 +31,7 @@ A .env file in Python is a simple text file used to store configuration settings
 To get GEMINI_API_KEY in this link https://aistudio.google.com/app/apikey
 
 To get NEWS-API_KEY in this link https://newsapi.org/
+
+## License
+
+This project is licensed under the terms of the [MIT license](LICENSE).
