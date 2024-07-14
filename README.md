@@ -81,13 +81,41 @@ notepad config.env
 ```bash
 python jarvis.py
 ```
-## Instructions
 
-A .env file in Python is a simple text file used to store configuration settings, environment variables, and other key-value pairs related to a Python project. These files typically contain sensitive information such as API keys, database credentials, or configuration settings.
+## Obtaining API Keys
 
-To get GEMINI_API_KEY in this link https://aistudio.google.com/app/apikey
+### GEMINI_API_KEY
 
-To get NEWS-API_KEY in this link https://newsapi.org/
+To obtain the `GEMINI_API_KEY` required for your project:
+
+1. Visit [Google AI Studio](https://aistudio.google.com/app/apikey).
+2. Follow the instructions to create a new API key.
+3. Copy the API key provided.
+
+### NEWS_API_KEY
+
+To obtain the `NEWS_API_KEY` required for your project:
+
+1. Visit [NewsAPI.org](https://newsapi.org/).
+2. Sign up or log in to your account.
+3. Create a new project.
+4. Generate an API key for your project.
+5. Copy the API key provided.
+
+
+## Contributing
+
+Contributions are welcome! Here's how you can contribute to improve this project:
+
+- Fork the repository
+- Create a new branch (`git checkout -b feature/improvement`)
+- Make your changes
+- Commit your changes (`git commit -am 'Add feature/improvement'`)
+- Push to the branch (`git push origin feature/improvement`)
+- Create a new Pull Request
+
+Please read our [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
+
 
 ## License
 
