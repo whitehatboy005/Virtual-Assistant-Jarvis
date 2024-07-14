@@ -63,11 +63,11 @@ Contributions to improve functionality, add new features, or optimize existing c
 ## Installation
 ## Clone the Repository
 ```bash
-git clone https://github.com/whitehatboy005/Jarvis
+git clone https://github.com/whitehatboy005/Virtual-Assistant-Jarvis
 ```
 ## Move the file
 ```bash
-cd Jarvis
+cd Virtual-Assistant-Jarvis
 ```
 ## Install Dependencies
 ```bash
