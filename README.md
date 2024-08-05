@@ -50,11 +50,6 @@ Jarvis is a Python-based virtual assistant capable of performing various tasks u
 
 To use Jarvis, ensure you have Python installed along with the necessary libraries listed in `requirements.txt`. Run the `jarvis.py` script and follow the voice activation prompt. Speak commands clearly and wait for Jarvis to execute tasks accordingly.
 
-## Contributions
-
-Contributions to improve functionality, add new features, or optimize existing code are welcome. Please fork the repository, create a new branch, commit changes, and submit a pull request with a detailed description of the proposed changes.
-
-
 
 # Model Output
 ![Screenshot 2024-07-11 210512](https://github.com/whitehatboy005/Jarvis/assets/147156726/8cfd0963-7605-486d-8ce2-4d498f4d279e)
@@ -101,20 +96,6 @@ To obtain the `NEWS_API_KEY` required for your project:
 3. Create a new project.
 4. Generate an API key for your project.
 5. Copy the API key provided.
-
-
-## Contributing
-
-Contributions are welcome! Here's how you can contribute to improve this project:
-
-- Fork the repository
-- Create a new branch (`git checkout -b feature/improvement`)
-- Make your changes
-- Commit your changes (`git commit -am 'Add feature/improvement'`)
-- Push to the branch (`git push origin feature/improvement`)
-- Create a new Pull Request
-
-Please read our [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
 
 
 ## License
