@@ -18,6 +18,9 @@ import speedtest
 import pywhatkit
 import re
 from googletrans import LANGUAGES, Translator
+from pygments import highlight
+from pygments.lexers import PythonLexer, HtmlLexer, get_lexer_by_name
+from pygments.formatters import TerminalFormatter
 from dotenv import load_dotenv
 
 load_dotenv('config.env')
@@ -30,7 +33,7 @@ NEWS_API_KEY = os.getenv("NEWS_API_KEY")
 genai.configure(api_key = AI_API_KEY)
 
 #Credentials calling
-NAME = os.getenv("USERNAME")
+NAME = os.getenv("NAME")
 PLACE = os.getenv("PLACE")
 PASSWORD = os.getenv("PASSWORD")
 
@@ -459,6 +462,27 @@ def news():
     for i in range(len(day)):
         speak(f"Today's {day[i]} news is: {head[i]}")
 
+#Usage file calling colorful
+def print_colorful_usage(content):
+    # ANSI escape codes for colors
+    BLUE = '\033[94m'  # Color for text before the hyphen
+    GREEN = '\033[92m'  # Color for text after the hyphen
+    RESET = '\033[0m'  # Reset color to default
+
+    # Split the content into lines
+    lines = content.splitlines()
+
+    for line in lines:
+        # Check if there's a hyphen in the line
+        if '-' in line:
+            # Split the line at the hyphen
+            before_hyphen, after_hyphen = line.split('-', 1)  # Only split at the first hyphen
+            # Print in specified colors
+            print(f"{BLUE}{before_hyphen.strip()}{RESET} - {GREEN}{after_hyphen.strip()}{RESET}")
+        else:
+            # Print lines without hyphen in default color (optional)
+            print(line)
+
 
 # AI response
 def ai_response(input_text):
@@ -466,18 +490,66 @@ def ai_response(input_text):
     response = model.generate_content(input_text)
     return response.text
 
+def is_code(text):
+    """Check if the response contains code-like content."""
+    # Code detection patterns
+    code_indicators = ['<html>', 'def ', 'class ', 'import ', '</', 'function', 'let ', 'const ', 'public ', 'private ',
+                       '```', '{', '}']
+    return any(indicator in text for indicator in code_indicators)
+
+def split_response(response):
+    """Split AI response into explanation and code parts."""
+    lines = response.splitlines()
+    explanation = []
+    code = []
+    in_code_block = False
+
+    for line in lines:
+        # Detect code block markers or code-like content
+        if '```' in line or is_code(line):
+            in_code_block = not in_code_block  # Toggle code block
+        if in_code_block or is_code(line):
+            code.append(line)
+        else:
+            explanation.append(line)
+
+    return "\n".join(explanation), "\n".join(code)
+
+def highlight_code(code, language="python"):
+    """Highlight the code using Pygments for colorful display in the terminal."""
+    try:
+        lexer = get_lexer_by_name(language)  # Get lexer by name like 'python', 'html', etc.
+    except:
+        lexer = PythonLexer()  # Default to Python syntax highlighting if no lexer is found
+    formatter = TerminalFormatter()
+    return highlight(code, lexer, formatter)
 
 def ai():
     speak("Ok sir, Activated AI mode")
     speak(f"Welcome to {NAME} AI. How can I help you?")
     while True:
         user_input = takecommand()
-        if user_input:
-            if "deactivate" in user_input.lower():
-                speak("Ok sir, Deactivated AI mode")
-                break
-            response = ai_response(user_input)
-            speak(response)
+        if user_input == "none":
+            continue  # If no valid input, continue listening
+
+        if "deactivate" in user_input:
+            speak("Deactivating AI mode.")
+            break
+
+        # Generate AI response
+        ai_reply = ai_response(user_input)
+
+        # Split the response into explanation and code parts
+        explanation, code = split_response(ai_reply)
+
+        # Speak the explanation
+        if explanation:
+            speak(explanation)
+
+        # Print the code examples with colorful highlighting
+        if code:
+            speak("Code/Examples:")
+            print(highlight_code(code, language="python"))  # You can change language based on user input
 
 
 # MAIN PROGRAM
@@ -547,7 +619,7 @@ def TaskExecution():
 
         # introduce ourself
         if "tell me about yourself" in query or "introduce yourself" in query or "who are you" in query:
-            speak("Sure sir, I am Jarvis, an Advanced Voice Assistant. I am equipped with a variety of features to enhance your productivity and convenience. I can open and close any apps, search anything on Google and Wikipedia, check the temperature, facilitate message passing, transcribe spoken words into text, play games, utilize AI features for various tasks, perform keyboard shortcuts, control volume, play music, provide the latest news updates, print documents, manage system functions such as shutdown, restart, and sleep, check internet speed, and much more. I can also translate languages to help you communicate effectively. Simply tell me what you need, and I'll do my best to assist you efficiently.")
+            speak("Sure sir, I am Jarvis, an Advanced Voice Assistant. Created in March 2024 by Harishkumar, I am equipped with a variety of features to enhance your productivity and convenience. I can open and close any apps, search anything on Google and Wikipedia, check the temperature, facilitate message passing, transcribe spoken words into text, play games, utilize AI features for various tasks, perform keyboard shortcuts, control volume, play music, provide the latest news updates, print documents, manage system functions such as shutdown, restart, and sleep, check internet speed, and much more. I can also translate languages to help you communicate effectively. Simply tell me what you need, and I'll do my best to assist you efficiently.")
 
         # open any apps
         elif ("open" in query) and ("settings" not in query and "task" not in query and "accessibility" not in query and "it" not in query and "run" not in query and "emoji" not in query and "clipboard" not in query and "mail" not in query and "notification" not in query and "tab" not in query and "facebook" not in query and "youtube" not in query and "window" not in query and "downloads" not in query):
@@ -567,10 +639,10 @@ def TaskExecution():
 
         #show functions text file
         elif "show usage file" in query or "how to use" in query or "show your functionalities" in query:
-            speak("Ok sir, showing my functionalities")
+            speak("Sure sir, showing my functionalities. Please read this...")
             with open('Usage.txt', 'r') as file:
                 content = file.read()
-            print(content)
+                print_colorful_usage(content)
             speak("Do you have any other work sir....")
 
         #time
