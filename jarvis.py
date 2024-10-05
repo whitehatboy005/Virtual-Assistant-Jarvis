@@ -485,6 +485,15 @@ def print_colorful_usage(content):
 
 
 # AI response
+class SessionManager:
+    def __init__(self):
+        self.sessions = []
+
+    def save_session(self, user_input, ai_response):
+        self.sessions.append({"user_input": user_input, "ai_response": ai_response})
+
+    def get_session(self):
+        return self.sessions
 def ai_response(input_text):
     model = genai.GenerativeModel('gemini-pro')
     response = model.generate_content(input_text)
@@ -527,6 +536,7 @@ def highlight_code(code, language="python"):
 def ai():
     speak("Ok sir, Activated AI mode")
     speak(f"Welcome to {NAME} AI. How can I help you?")
+    session_manager = SessionManager()
     while True:
         user_input = takecommand()
         if user_input == "none":
@@ -538,7 +548,7 @@ def ai():
 
         # Generate AI response
         ai_reply = ai_response(user_input)
-
+        session_manager.save_session(user_input, ai_response)
         # Split the response into explanation and code parts
         explanation, code = split_response(ai_reply)
 
@@ -548,7 +558,8 @@ def ai():
 
         # Print the code examples with colorful highlighting
         if code:
-            speak("Code/Examples:")
+            print("Code/Examples")
+            print("-------------")
             print(highlight_code(code, language="python"))  # You can change language based on user input
 
 
