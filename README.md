@@ -100,4 +100,4 @@ To obtain the `NEWS_API_KEY` required for your project:
 
 ## License
 
-This project is licensed under the terms of the [MIT license](LICENSE).
+This project is licensed under the terms of the [MIT license](LICENSE.md).
