@@ -53,8 +53,27 @@ To use Jarvis, ensure you have Python installed along with the necessary librari
 
 # Model Output
 ![Screenshot 2024-07-11 210512](https://github.com/whitehatboy005/Jarvis/assets/147156726/8cfd0963-7605-486d-8ce2-4d498f4d279e)
+#
+## Obtaining API Keys
 
+### GEMINI_API_KEY
 
+To obtain the `GEMINI_API_KEY` required for your project:
+
+1. Visit [Google AI Studio](https://aistudio.google.com/app/apikey).
+2. Follow the instructions to create a new API key.
+3. Copy the API key provided.
+
+### NEWS_API_KEY
+
+To obtain the `NEWS_API_KEY` required for your project:
+
+1. Visit [NewsAPI.org](https://newsapi.org/).
+2. Sign up or log in to your account.
+3. Create a new project.
+4. Generate an API key for your project.
+5. Copy the API key provided.
+#
 ## Installation
 ## Clone the Repository
 ```bash
@@ -76,28 +95,7 @@ notepad config.env
 ```bash
 python jarvis.py
 ```
-
-## Obtaining API Keys
-
-### GEMINI_API_KEY
-
-To obtain the `GEMINI_API_KEY` required for your project:
-
-1. Visit [Google AI Studio](https://aistudio.google.com/app/apikey).
-2. Follow the instructions to create a new API key.
-3. Copy the API key provided.
-
-### NEWS_API_KEY
-
-To obtain the `NEWS_API_KEY` required for your project:
-
-1. Visit [NewsAPI.org](https://newsapi.org/).
-2. Sign up or log in to your account.
-3. Create a new project.
-4. Generate an API key for your project.
-5. Copy the API key provided.
-
-
+#
 ## License
 
 This project is licensed under the terms of the [MIT license](LICENSE.md).
