@@ -918,15 +918,6 @@ def TaskExecution():
             time.sleep(8)
             pyautogui.press('k')
 
-        # music play
-        elif "music" in query:
-            music_dir = "C:\\Users\\Haris\\Music"
-            songs = os.listdir(music_dir)
-            rd = random.choice(songs)
-            for song in songs:
-                if song.endswith('.mp3'):
-                    os.startfile(os.path.join(music_dir, rd))
-
         # find ip address
         elif "ip address" in query:
             ip_address = get_ip_address()
