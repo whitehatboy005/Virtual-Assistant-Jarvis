@@ -72,8 +72,6 @@ play next video & previous video in youtube - [Example : play next video]
 
 play a song on youtube - first say play song on YouTube then it will ask song name then you will say song name it will playing automatically.
 
-play game - [Example : lets play a game]
-
 find ip address - [Example : find my ipaddress]
 
 find location - [Example: where we are]
@@ -104,7 +102,7 @@ mute & unmute the whole system - [Example : mute the system]
 
 volume up & volume down - [Example : volume up]
 
-play games (stone,paper,scissor and number gussing game) - just say play games it will ask which game you want to play in above the game choices.
+play games (stone,paper,scissor and number gussing game) - just say let's play games it will ask which game you want to play in above the game choices.
 
 check battery percent - [Example: check battery percent]
 
