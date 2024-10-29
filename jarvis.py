@@ -1031,7 +1031,7 @@ def TaskExecution():
             pyautogui.press("volumedown")
 
         # GAME
-        elif "let's play a game" in query or "let's play game" in query or "let's play game" in query or "let's play a game" in query:
+        elif "let's play a game" in query or "let's play game" in query or "let's play game" in query or "let's play a game" in query or "play some game" in query or "game" in query:
             game()
 
         # check battery percent
