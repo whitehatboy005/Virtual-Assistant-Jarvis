@@ -72,7 +72,7 @@ play next video & previous video in youtube - [Example : play next video]
 
 play a song on youtube - first say play song on YouTube then it will ask song name then you will say song name it will playing automatically.
 
-play music (our downloaded music) - [Example : play music]
+play game - [Example : lets play a game]
 
 find ip address - [Example : find my ipaddress]
 
