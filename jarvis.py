@@ -336,7 +336,7 @@ def SPS():
         user_choice = get_user_choice()
         if user_choice == "break":
             speak("Ok sir, Exiting the game.")
-            exit()
+            TaskExecution()
         speak("You say " + user_choice)
         speak("I choose " + computer_choice)
 
@@ -358,7 +358,7 @@ def SPS():
             SPS()
         elif play_again == "no":
             speak("Ok sir, Exiting the game.")
-            exit()
+            TaskExecution()
         else:
             speak("Sir, please say Yes or No")
         play_again = takecommand()
@@ -445,7 +445,7 @@ def NGG():
             NGG()
         elif play_again == "no":
             speak("Ok sir, Exiting the game.")
-            exit()
+            TaskExecution()
         else:
             speak("Sir, please say Yes or No")
         play_again = takecommand()
