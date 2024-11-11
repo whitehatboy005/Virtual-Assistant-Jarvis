@@ -1,6 +1,6 @@
 # Virtual Assistant (Jarvis)
 
-Jarvis is a Python-based virtual assistant capable of performing various tasks using voice commands. It utilizes speech recognition, web scraping, automation, and external APIs to provide a wide range of functionalities.
+It's Python-based virtual assistant capable of performing various tasks using voice commands. It utilizes speech recognition, web scraping, automation, and external APIs to provide a wide range of functionalities.
 
 ## Features
 
