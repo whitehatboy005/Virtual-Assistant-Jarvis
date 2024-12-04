@@ -1,4 +1,5 @@
 # Virtual Assistant (Jarvis)
+[![License](https://img.shields.io/github/license/whitehatboy005/Virtual-Assistant-Jarvis)](LICENSE.md)
 
 It's Python-based virtual assistant capable of performing various tasks using voice commands. It utilizes speech recognition, web scraping, automation, and external APIs to provide a wide range of functionalities.
 
